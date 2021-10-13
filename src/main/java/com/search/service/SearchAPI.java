@@ -77,11 +77,13 @@ public class SearchAPI {
 
 			String keyName = "youtube.apiKey." + Configuration.API_KEY_NUMBER;
 			String apiKey = propertiesBundle.getString(keyName);
-			System.out.println(apiKey);
 
 			if (apiKey == null) {
 				apiKey = System.getenv(Configuration.YOUTUBE_APIKEY_ENV);
 			}
+			System.out.println("AIzaSyA3RWwfVVOP1BpM3_U8KdZP37JExXEhZ24");
+			System.out.println(apiKey);
+			System.out.println(apiKey.equals("AIzaSyA3RWwfVVOP1BpM3_U8KdZP37JExXEhZ24"));
 
 			search.setKey(apiKey);
 			search.setQ(searchQuery);
