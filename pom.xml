@@ -9,7 +9,7 @@
 		<version>2.6.0-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.aditya</groupId>
+	<groupId>com.search</groupId>
 	<artifactId>search-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Search API</name>
