@@ -1,4 +1,4 @@
-# seach-api
+# Search Api - Youtube
 1. Go to project directory 
 2. Run mvn clean package
 3. Run docker build --tag=search-api:latest .
@@ -10,3 +10,7 @@ Now your application is running on localhost:8200
 
 In the backend their is a continuos api call happening to youtube search api on every nth seconds, which is configuration with the given search query.
 
+If you want to run the application without docker
+1. Go to project directory 
+2. Run mvn clean package
+3. java -jar target/search-api-0.0.1-SNAPSHOT.jar
