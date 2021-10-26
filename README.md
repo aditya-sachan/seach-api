@@ -14,3 +14,5 @@ If you want to run the application without docker
 1. Go to project directory 
 2. Run mvn clean package
 3. java -jar target/search-api-0.0.1-SNAPSHOT.jar
+
+PS- If the API keys are exhausted or invalid please add your own youtube api keys.
