@@ -13,29 +13,27 @@ import com.search.service.VideoSearchService;
 public class ApiKeyUtility {
 	private static final Logger logger = LogManager.getLogger(VideoSearchService.class);
 
-	@Value("${youtube.apiKey.number}")
-	private int keyNumber;
-	
+	@Value("${youtube.apiKey.baseName}")
+	private String apiKeyBaseName;
+
 	@Autowired
 	private Environment env;
-	
+
+	// this key keeps the status of which youtube api key is being used currently.
 	private static int currentKeyNumber = 1;
-	
+
+	// if api key has exceeed its qouta limits, then change to next key.
 	public String fetchNewKey() {
-		String keyName = "youtube.apiKey." + ++currentKeyNumber;
-		String keyValue = env.getProperty(keyName);
-		if(keyValue == null) {
-			logger.info("All api keys exhausted, switching to first key...");
+		if (env.getProperty("youtube.apiKey." + ++currentKeyNumber) == null) {
+			logger.info("All api keys exhausted, switching back to first key...");
 			currentKeyNumber = 1;
-			keyName = "youtube.apiKey." + currentKeyNumber;
-			return env.getProperty(keyName);
+			return env.getProperty(apiKeyBaseName + currentKeyNumber);
 		}
-		return keyValue;
+		return env.getProperty(apiKeyBaseName + currentKeyNumber);
 	}
-	
+
 	public String getAPIKey() {
 		String keyName = "youtube.apiKey." + currentKeyNumber;
-		System.out.println(keyName);
 		String keyValue = env.getProperty(keyName);
 		return keyValue;
 	}
